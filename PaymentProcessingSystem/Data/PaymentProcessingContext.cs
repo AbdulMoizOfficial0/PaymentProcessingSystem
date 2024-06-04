@@ -16,6 +16,10 @@ namespace PaymentProcessingSystem.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<BankAccount>().Property(b => b.Balance).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<CreditCardAccount>().Property(c => c.Balance).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<DigitalWallet>().Property(d => d.Balance).HasColumnType("decimal(18,2)");
         }
     }
 }
